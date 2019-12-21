@@ -1,0 +1,34 @@
+C00C 000             jmp     start 
+0008 001     a       dw      21      int a[]         
+0004 002     size    dw      4       5
+0000 003     max     dw      0       0
+0001 004     1       dw      1
+3000 005     loadh   dw      3000    
+0000 006     i       dw      0
+0000 007     temp    dw      0
+0001 008     b      dw      1       a[0] = 1
+0005 009     c      dw      2       a[1] = 5
+0014 00A	  d      dw     14      a[2] = 20
+0000 00B
+3002 00C     load    size    
+6006 00D     sub     i       size - i
+E01F 00E     exit    jmpl    i < size
+D01F 00F     exit    jmpe    size = i
+3005 010     load    loadh   load a[i]
+5001 011     add     a[]     
+5006 012     add     i
+4014 013     store   newCell    
+0000 014     newCell    dw      load a[i]
+4007 015     store   temp    temp = a[i]
+6003 016     sub     max     a[i] - max
+E01B 017     exit    jmpl    max > a[i] 
+D01B 018     exit    jmpe    
+3007 019     load    temp    
+4003 01A     store   max     
+3006 01B     load    i       
+5004 01C     add     1       i+1
+4006 01D     store   i 
+C00C 01E     jmp     Looping back
+3003 01F     load    max     
+1800 020     printH  print max
+0000 021     HULK 
