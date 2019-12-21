@@ -1,2 +1,3 @@
 # CS-2150
-C++ application
+C++ applications
+"CS 2150: Program and Data Representation" at the University of Virginia. 
